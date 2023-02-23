@@ -1,4 +1,4 @@
-version: "3.8"
+version: "3.3"
 
 services:
     nginx:
@@ -16,7 +16,7 @@ services:
         networks:
             - inception
         depends_on:
-            -wordpress
+            - wordpress
 
     wordpress:
         image: wordpress:custom
@@ -53,4 +53,3 @@ services:
         restart: always
         networks:
             - inception
-        init: true
