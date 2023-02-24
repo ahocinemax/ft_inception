@@ -14,7 +14,7 @@ services:
             - wp-data:/var/www/html
         restart: always
         networks:
-            - inception
+            - nginx
         depends_on:
             - wordpress
 
@@ -31,7 +31,7 @@ services:
             - wp-data:/var/www/html
         restart: always
         networks:
-            - inception
+            - nginx
         depends_on:
             - mariadb
 
@@ -52,4 +52,4 @@ services:
             - dbdata:/var/lib/mysql
         restart: always
         networks:
-            - inception
+            - nginx
