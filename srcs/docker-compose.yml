@@ -14,7 +14,7 @@ services:
             - wp-data:/var/www/html
         restart: always
         networks:
-            - nginx
+            - inception
         depends_on:
             - wordpress
 
@@ -31,7 +31,7 @@ services:
             - wp-data:/var/www/html
         restart: always
         networks:
-            - nginx
+            - inception
         depends_on:
             - mariadb
 
@@ -52,4 +52,23 @@ services:
             - dbdata:/var/lib/mysql
         restart: always
         networks:
-            - nginx
+            - inception
+
+networks:
+    inception:
+        name: inception_net
+        driver: bridge
+
+volumes:
+    dbdata:
+        driver: local
+        driver_opts:
+            type: 'none'
+            o: 'bind'
+            device: /home/$USER/data/DB
+    wpdata:
+        driver: local
+        driver_opts:
+            type: 'none'
+            o: 'bind'
+            device: /home/$USER/data/WordPress
