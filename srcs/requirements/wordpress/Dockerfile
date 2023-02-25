@@ -10,8 +10,8 @@ COPY ./conf/www.conf etc/php/7.3/fpm/pool.d
 
 COPY ./tools /tmp
 
-RUN chmod +x /tmp/init.sh
+RUN chmod +x /tmp/conf.sh
 
 EXPOSE 3306 9000
 
-CMD ["sh", "/tmp/init.sh"]
+CMD ["bash", "/tmp/conf.sh"]
