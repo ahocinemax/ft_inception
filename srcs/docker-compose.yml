@@ -2,8 +2,8 @@ version: "3.3"
 
 services:
     nginx:
-        image: nginx:custom
         container_name: nginx
+        image: nginx:custom
         build:
             context: ./requirements/nginx
             dockerfile: Dockerfile
@@ -19,25 +19,26 @@ services:
             - wordpress
 
     wordpress:
-        image: wordpress:custom
         container_name: wordpress
+        image: wordpress:custom
         build:
             context: ./requirements/wordpress
-            dockerfile: Dockerfile
+        env_file:
+            - .env
         ports:
-            - 443:443
+            - 3306
             - 9000
         volumes:
             - wpdata:/var/www/html
-        restart: always
+        restart: unless-stopped
         networks:
             - inception
         depends_on:
             - mariadb
 
     mariadb:
-        image: mariadb:custom
         container_name: mariadb
+        image: mariadb:custom
         build:
             context: ./requirements/mariadb
             dockerfile: Dockerfile
