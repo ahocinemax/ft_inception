@@ -11,7 +11,7 @@ services:
             - 443:443
             - 9000
         volumes:
-            - wpdata:/var/www/html
+            - wp_data:/var/www/html
         restart: always
         networks:
             - inception
@@ -29,7 +29,7 @@ services:
             - 3306
             - 9000
         volumes:
-            - wpdata:/var/www/html
+            - wp_data:/var/www/html
         restart: unless-stopped
         networks:
             - inception
@@ -47,11 +47,12 @@ services:
                 - MYSQL_PASSWORD
                 - MYSQL_DATABASE
                 - MYSQL_ROOT_PASSWORD
+        init: true
         ports:
             - 3306:3306
         volumes:
-            - dbdata:/var/lib/mysql
-        restart: always
+            - db_data:/var/lib/mysql
+        restart: unless-stopped
         networks:
             - inception
 
@@ -61,13 +62,13 @@ networks:
         driver: bridge
 
 volumes:
-    dbdata:
+    db_data:
         driver: local
         driver_opts:
             type: 'none'
             o: 'bind'
             device: /home/$USER/data/DB
-    wpdata:
+    wp_data:
         driver: local
         driver_opts:
             type: 'none'

@@ -2,12 +2,12 @@ FROM debian:buster
 
 ARG MYSQL_USER
 ARG MYSQL_PASSWORD
-ARG MYSQL_ROOT_PASSWORD
 ARG MYSQL_DATABASE
+ARG MYSQL_ROOT_PASSWORD
 
 RUN apt-get update && apt-get upgrade -y
 
-RUN apt-get install mariadb-server
+RUN apt-get install -y mariadb-server
 
 RUN service mysql start && \
     mysql -e "CREATE DATABASE ${MYSQL_DATABASE}; \
