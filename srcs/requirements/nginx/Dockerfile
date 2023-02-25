@@ -5,7 +5,7 @@ RUN apt-get update -y
 RUN apt-get install nginx -y && \
     apt-get install openssl -y
 
-RUN openssl req -x509 -nodes -days 365 -newkey rsa:4096 -sha256 \
+RUN openssl req -newkey rsa:4096 -x509 -sha256 -days 365 -nodes \
     -out /etc/ssl/certs/ahocine.crt \
     keyout /etc/ssl/private/ahocine.key \
     -subj "/C=FR"
