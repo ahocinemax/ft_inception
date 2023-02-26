@@ -63,7 +63,7 @@ networks:
 
 volumes:
     db_data:
-        driver: local
+        # driver: local
         driver_opts:
             type: 'none'
             o: 'bind'
