@@ -26,4 +26,4 @@ then
     chown -R    www-data:www-data /var/www/html;
 fi
 
-php-fpm7.3 -F --nodeamonize;
+php-fpm7.3 -F;
