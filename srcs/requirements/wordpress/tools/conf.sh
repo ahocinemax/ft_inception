@@ -6,6 +6,7 @@ then
     mv          wp-cli.phar /usr/local/bin/wp;
     chmod       +x /usr/local/bin/wp;
     mkdir -p    /var/www/html/wordpress;
+    cp -r       /home/ahocine/data/WordPress/wordpress /var/www/html/wordpress;
     cd          /var/www/html/wordpress;
     wp          core download --allow-root;
     mv          /var/www/html/wordpress/wp-config-sample.php /var/www/html/wordpress/wp-config.php;
