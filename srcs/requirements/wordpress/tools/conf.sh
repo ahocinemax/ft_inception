@@ -10,7 +10,7 @@ then
     sed -i      "s|database_name_here|$MYSQL_DATABASE|" /var/www/html/wordpress/wp-config.php;
     sed -i      "s|username_here|$MYSQL_USER|" /var/www/html/wordpress/wp-config.php;
     sed -i      "s|password_here|$MYSQL_PASSWORD|" /var/www/html/wordpress/wp-config.php;
-    sed -i      "s|127.0.0.1|$MYSQL_HOST|" /var/www/html/wordpress/wp-config.php;
+    sed -i      "s|localhost|$MYSQL_HOST|" /var/www/html/wordpress/wp-config.php;
     sed -i      "s|$WP_URL|$WP_URL|" /var/www/html/wordpress/wp-config.php;
 
     wp          core install --url=$WP_URL --title=$WP_SITE_TITLE --admin_user=$WP_ADMIN --admin_password=$WP_ADMIN_PASSWORD --admin_email=$WP_ADMIN_EMAIL --allow-root;
