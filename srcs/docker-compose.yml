@@ -6,9 +6,8 @@ services:
         image: nginx:custom
         build:
             context: ./requirements/nginx
-            dockerfile: Dockerfile
         ports:
-            - 443:443
+            - "443:443"
             - 9000
         volumes:
             - wp_data:/var/www/html
@@ -41,7 +40,6 @@ services:
         image: mariadb:custom
         build:
             context: ./requirements/mariadb
-            dockerfile: Dockerfile
             args:
                 - MYSQL_USER
                 - MYSQL_PASSWORD
