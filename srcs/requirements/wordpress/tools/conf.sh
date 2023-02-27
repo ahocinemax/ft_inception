@@ -14,11 +14,10 @@ then
     sed -i      "s|password_here|$MYSQL_PASSWORD|" /var/www/html/wordpress/wp-config.php;
     sed -i      "s|localhost|$MYSQL_HOST|" /var/www/html/wordpress/wp-config.php;
     sed -i      "s|$WP_URL|$WP_URL|" /var/www/html/wordpress/wp-config.php;
-
+    sed -i      "s|define('WP_DEBUG', false);|define('WP_DEBUG', true);|" /var/www/html/wordpress/wp-config.php;
     wp          core install --url=$WP_URL --title=$WP_SITE_TITLE --admin_user=$WP_ADMIN --admin_password=$WP_ADMIN_PASSWORD --admin_email=$WP_ADMIN_EMAIL --allow-root;
     wp          user create $WP_USER_LOGIN $WP_USER_EMAIL --user_pass=$WP_USER_PASSWORD --allow-root;
     chown -R    www-data:www-data /var/www/html/wordpress;
 fi
 
-# Path: srcs/requirements/wordpress/tools/start.sh
 php-fpm7.3 -F --nodeamonize;
