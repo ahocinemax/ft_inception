@@ -11,7 +11,7 @@ services:
             - 443:443
             - 9000
         volumes:
-            - wp_data:/var/www/html
+            - wp_data: /var/www/html
         restart: always
         networks:
             - inception
@@ -29,7 +29,7 @@ services:
             - 3306
             - 9000
         volumes:
-            - wp_data:/var/www/html
+            - wp_data: /var/www/html
         restart: unless-stopped
         networks:
             - inception
