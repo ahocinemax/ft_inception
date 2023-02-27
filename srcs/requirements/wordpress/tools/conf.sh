@@ -1,3 +1,5 @@
+#!/bin/bash
+
 if [ ! -f /var/www/html/wp-config.php ];
 then
     wget        https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar;
@@ -19,4 +21,4 @@ then
 fi
 
 # Path: srcs/requirements/wordpress/tools/start.sh
-php-fpm7.3 -F;
+php-fpm7.3 -F --nodeamonize;
