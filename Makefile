@@ -25,6 +25,10 @@ restart:
 	@$(COMPOSE) restart
 
 fclean:	down
+	docker rm $(docker ps -qa)
+	docker rmi -f $(docker image ls -qa)
+	docker volume rm $(docker volume ls -q)
+	docker network rm $(docker network ls -q) 2>/dev/null
 	docker system prune -a -f --volumes
 
 re:	fclean up
