@@ -1,8 +1,10 @@
 NAME	=	inception
 
-IMAGES	=	nginx wordpress mariadb
+CONTAINERS	=	nginx wordpress mariadb
 
-VOLUMES =	nginx:custom wordpress:custom mariadb:custom
+IMAGES	=	nginx:custom wordpress:custom mariadb:custom
+
+VOLUMES =	srcs_db_data srcs_wp_data
 
 COMPOSE	=	/home/ahocine/.docker/cli-plugins/docker-compose -f srcs/docker-compose.yml
 
@@ -29,7 +31,7 @@ restart:
 	@$(COMPOSE) restart
 
 fclean:	down
-	docker rm $(IMAGES)
+	docker rm $(CONTAINERS)
 	docker rmi -f $(IMAGES)
 	docker volume rm $(VOLUMES)
 	docker network rm inception 2>/dev/null
