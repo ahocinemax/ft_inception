@@ -33,7 +33,6 @@ restart:
 fclean:	down
 	docker volume rm $(VOLUMES)
 	docker rmi -f $(IMAGES)
-	docker network rm inception 2>/dev/null
 	docker system prune -a -f --volumes
 
 re:	fclean up
