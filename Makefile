@@ -31,9 +31,9 @@ restart:
 	@$(COMPOSE) restart
 
 fclean:	down
-	docker rm $(CONTAINERS)
-	docker rmi -f $(IMAGES)
 	docker volume rm $(VOLUMES)
+	docker rmi -f $(IMAGES)
+	docker rm $(CONTAINERS)
 	docker network rm inception 2>/dev/null
 	docker system prune -a -f --volumes
 
