@@ -24,6 +24,6 @@ then
             --user_pass=$WP_USER_PASSWORD;
 
 	chown -R    www-data:www-data /var/www/html;
-done
+fi
 
 php-fpm7.3 -F;
