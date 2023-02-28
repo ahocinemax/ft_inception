@@ -19,16 +19,16 @@ WHITE	=	\033[0;37m
 RESET	=	\033[0m
 
 up:
-	@$(COMPOSE) up -d --build
+	$(COMPOSE) up -d --build
 
 down:
-	@$(COMPOSE) down
+	$(COMPOSE) down
 
 start:
-	@$(COMPOSE) start
+	$(COMPOSE) start
 
 restart:
-	@$(COMPOSE) restart
+	$(COMPOSE) restart
 
 fclean:	down
 	docker volume rm $(VOLUMES)
