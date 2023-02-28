@@ -3,6 +3,8 @@
 wget        https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar;
 mv          wp-cli.phar /usr/local/bin/wp;
 chmod       +x /usr/local/bin/wp;
+pwd;
+echo \033[0;31m HELLLOOOOOO \033[0m
 mkdir -p    /var/www/html/;
 cd          /var/www/html/;
 wp          core download --path=/var/www/html --allow-root;
