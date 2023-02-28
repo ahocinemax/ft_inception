@@ -13,16 +13,17 @@ then
 	sed -i		"s|localhost|$MYSQL_HOST|" /var/www/html/wordpress/wp-config.php;
 	sed -i		's|$WP_URL|'$WP_URL'|' /var/www/html/wordpress/wp-config.php;
 
-wp          core install --allow-root --url=$WP_URL \
+	wp      core install --allow-root --url=$WP_URL \
             --title=$WP_SITE_TITLE \
             --admin_user=$WP_ADMIN_LOGIN \
             --admin_password=$WP_ADMIN_PASSWORD \
             --admin_email=$WP_ADMIN_EMAIL;
 
-wp          user create --allow-root\
+	wp      user create --allow-root\
             $WP_USER_LOGIN $WP_USER_EMAIL \
             --user_pass=$WP_USER_PASSWORD;
 
-chown -R    www-data:www-data /var/www/html;
+	chown -R    www-data:www-data /var/www/html;
+done
 
 php-fpm7.3 -F;
