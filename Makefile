@@ -1,6 +1,6 @@
 NAME	=	inception
 
-COMPOSE	=	/home/ahocine//.docker/cli-plugins/docker-compose -f srcs/docker-compose.yml
+COMPOSE	=	/home/ahocine/.docker/cli-plugins/docker-compose -f srcs/docker-compose.yml
 
 # Colors
 RED		=	\033[0;31m
