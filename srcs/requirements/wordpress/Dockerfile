@@ -1,7 +1,5 @@
 FROM debian:buster
 
-DROP DATABASE nom_de_la_base_de_donnees;
-
 RUN apt-get update -y && apt-get upgrade -y && \
     apt-get install php-fpm php-mysql -y && \
     apt-get install wget -y && \
