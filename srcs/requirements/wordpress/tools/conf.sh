@@ -7,7 +7,7 @@ then
     chmod       +x /usr/local/bin/wp;
     mkdir -p    /var/www/html/wordpress;
     cd          /var/www/html/wordpress;
-    wp          core download --allow-root;
+    wp          core download --path=/home/$USER/data/WordPress --allow-root;
     mv          /var/www/html/wordpress/wp-config-sample.php /var/www/html/wordpress/wp-config.php;
     sed -i      "s|database_name_here|$MYSQL_DATABASE|" /var/www/html/wordpress/wp-config.php;
     sed -i      "s|username_here|$MYSQL_USER|" /var/www/html/wordpress/wp-config.php;
