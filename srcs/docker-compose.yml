@@ -67,8 +67,8 @@ volumes:
             o: 'bind'
             device: /home/$USER/data/DB
     wp_data:
-    #     driver: local
-    #     driver_opts:
-    #         type: 'none'
-    #         o: 'bind'
-    #         device: /home/$USER/data/WordPress
+        driver: local
+        driver_opts:
+            type: 'none'
+            o: 'bind'
+            device: /home/$USER/data/WordPress
