@@ -17,7 +17,7 @@ then
     sed -i      "s|define('WP_DEBUG', false);|define('WP_DEBUG', true);|" /var/www/html/wordpress/wp-config.php;
     wp          core install --allow-root --url=$WP_URL \
                 --title=$WP_SITE_TITLE \
-                --admin_user=$WP_ADMIN_USER \
+                --admin_user=$WP_ADMIN_LOGIN \
                 --admin_password=$WP_ADMIN_PASSWORD \
                 --admin_email=$WP_ADMIN_EMAIL;
     wp          user create --allow-root\
