@@ -27,6 +27,9 @@ pip3 install docker-compose
 sudo apt update
 sudo apt install -y curl wget
 
+sudo rm -rf /home/ahocine/data/DB /home/ahocine/data/WordPress
+mkdir -p /home/ahocine/data/DB /home/ahocine/data/WordPress
+
 curl -s https://api.github.com/repos/docker/compose/releases/latest | \
 grep browser_download_url | grep docker-compose-Linux-x86_64 | cut -d '"' -f 4 | wget -qi -
 
