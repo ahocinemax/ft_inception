@@ -12,7 +12,7 @@ RUN openssl req -newkey rsa:4096 -x509 -sha256 -days 365 -nodes \
     -keyout /etc/ssl/private/ahocine.key \
     -subj "/C=FR"
 
-COPY conf/nginx.conf /etc/nginx/conf.d
+COPY ./conf/nginx.conf /etc/nginx/conf.d
 
 EXPOSE 443 9000
 
