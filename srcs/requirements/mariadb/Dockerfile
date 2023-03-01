@@ -11,12 +11,12 @@ RUN apt-get install -y mariadb-server
 
 COPY ./config/50-server.cnf /etc/mysql/mariadb.conf.d/
 
-COPY ./config/init.sql /etc/mysql/conf.d/
+COPY ./config/init.sql /var/www/
 
 RUN service mysql start && \
-    mysql < /etc/mysql/conf.d/init.sql
-    # && rm -f /etc/mysql/conf.d/init.sql
+    mysql < /var/www/init.sql && \
+    rm -f /var/www/init.sql
 
 EXPOSE 3306
 
-ENTRYPOINT [ "mysqld" ]
+ENTRYPOINT [ "mysqld", [ "--defaults-file=/etc/mysql/mariadb.conf.d/50-server.cnf" ] ]
