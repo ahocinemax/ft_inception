@@ -19,4 +19,4 @@ RUN service mysql start && \
 
 EXPOSE 3306
 
-ENTRYPOINT [ "mysqld", [ "--defaults-file"="/etc/mysql/mariadb.conf.d/50-server.cnf" ] ]
+ENTRYPOINT [ "mysqld", "--defaults-file=/etc/mysql/mariadb.conf.d/50-server.cnf" ]
