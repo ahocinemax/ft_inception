@@ -11,11 +11,12 @@ RUN apt-get install -y mariadb-server
 
 COPY ./config/50-server.cnf /etc/mysql/mariadb.conf.d/
 
-COPY ./config/init.sql /var/www/
-
 RUN service mysql start && \
-    mysql < /var/www/init.sql && \
-    rm -f /var/www/init.sql
+    mysql -e "CREATE DATABASE IF NOT EXISTS ${MYSQL_DATABASE}; \
+    CREATE USER IF NOT EXISTS '${MYSQL_USER}'@'%' IDENTIFIED BY '${MYSQL_ROOT_PASSWORD}'; \
+    GRANT ALL PRIVILEGES ON ${MYSQL_DATABASE}.* TO '${MYSQL_USER}'@'%'; \
+    FLUSH PRIVILEGES; \
+    ALTER USER 'root'@'localhost' IDENTIFIED by '${MYSQL_ROOT_PASSWORD}';"
 
 EXPOSE 3306
 
