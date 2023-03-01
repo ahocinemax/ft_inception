@@ -31,9 +31,9 @@ restart:
 	$(COMPOSE) restart
 
 fclean:	down
-	docker volume rm $(VOLUMES)
-	docker rmi -f $(IMAGES)
-	docker system prune -a -f --volumes
+	-docker volume rm $(VOLUMES)
+	-docker rmi -f $(IMAGES)
+	-docker system prune -a -f --volumes
 
 re:	fclean up
 
