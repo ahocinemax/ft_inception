@@ -16,6 +16,12 @@ RUN service mysql start && \
     FLUSH PRIVILEGES; \
     SET PASSWORD FOR 'root'@'localhost' = PASSWORD('${MYSQL_ROOT_PASSWORD}');"
 
+RUN rm /etc/mysql/my.conf && touch /etc/mysql/my.conf && \
+    echo "[mysqld]" >> /etc/mysql/my.conf && \
+    echo "bind-address = 0.0.0.0" >> /etc/mysql/my.conf
+
+COPY ./conf/my.conf /etc/mysql/my.conf
+
 EXPOSE 3306
 
 ENTRYPOINT [ "mysqld", "--bind-address=0.0.0.0" ]
