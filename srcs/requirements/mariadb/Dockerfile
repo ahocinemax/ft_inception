@@ -14,8 +14,8 @@ RUN service mysql start && \
     CREATE USER '${MYSQL_USER}'@'%' IDENTIFIED BY '${MYSQL_ROOT_PASSWORD}'; \
     GRANT ALL PRIVILEGES ON ${MYSQL_DATABASE}.* TO '${MYSQL_USER}'@'%'; \
     FLUSH PRIVILEGES; \
-    SET PASSWORD FOR 'root'@'localhost' = PASSWORD('${MYSQL_ROOT_PASSWORD}');"
+    ALTER USER 'root'@'localhost' IDENTIFIED by '${MYSQL_ROOT_PASSWORD}';"
 
 EXPOSE 3306
 
-ENTRYPOINT [ "mysqld", "--bind-address=0.0.0.0" ]
+ENTRYPOINT [ "mysqld", "--bind-address=127.0.0.1" ]
