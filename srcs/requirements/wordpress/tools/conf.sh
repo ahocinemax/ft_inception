@@ -26,4 +26,4 @@ then
 	chown -R    www-data:www-data /var/www/html;
 fi
 
-php-fpm8.0 -F;
+php-fpm7.3 -F;
